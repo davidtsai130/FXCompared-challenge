@@ -8,7 +8,7 @@ class Account(models.Model):
     name = models.CharField(max_length=75)
     address = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=12)
-    balance = models.DecimalField(max_digits=12, decimal_places=2)
+    balance = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
 
     def __str__(self):
         return self.name +'- balance: '+ str(self.balance)
