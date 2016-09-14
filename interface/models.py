@@ -19,8 +19,8 @@ class Transaction(models.Model):
     transaction = models.CharField(max_length=25)
     transaction_type = models.CharField(max_length=10)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
-    account_from = models.ForeignKey(Account, related_name="account_from")
-    account_to = models.ForeignKey(Account, related_name="account_to")
+    account_from = models.ForeignKey(Account, related_name="account_from_set")
+    account_to = models.ForeignKey(Account, related_name="account_to_set")
 
     def __str__(self):
-        return self.Transaction
+        return self.transaction
