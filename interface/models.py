@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.utils import timezone
 from datetime import datetime
 from django.db import models
 
@@ -14,9 +15,12 @@ class Account(models.Model):
         return self.name +'- balance: '+ str(self.balance)
 
 class Transaction(models.Model):
-    date = models.DateTimeField(default=datetime.now, blank=True)
+    date = models.DateTimeField(default=timezone.now(), blank=True)
     transaction = models.CharField(max_length=25)
     transaction_type = models.CharField(max_length=10)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     account_from = models.ForeignKey(Account, related_name="account_from")
     account_to = models.ForeignKey(Account, related_name="account_to")
+
+    def __str__(self):
+        return self.Transaction
