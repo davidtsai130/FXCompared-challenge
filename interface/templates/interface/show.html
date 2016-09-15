@@ -14,13 +14,14 @@
   </ul>
 
   <h1> New Transaction </h1>
-  <form action="/transaction/new" method="post">
+  <form action="/transaction/new" method="post">{% csrf_token %}
     <label for="name">Description: </label>
     <input id="name" type="text" name="name" maxlength="25" required />
-    <label for="transaction_type">Type: </label>
-    <input id="transaction_type" type="text" name="transaction_type" maxlength="10" required />
     <label for="transaction_type">Type</label>
        {{ form.transaction_type }} <!-- dropdown for transaction types would be here -->
+    <label for="account_to">Type: </label> <!-- account_from would default to self -->
+    <input id="account_to" type="text" name="account_to" maxlength="10" required />
     <label for="amount">Amount: </label>
     <input id="amount" type="text" name="amount" maxlength="100" required />
+    <input type="submit" value="OK"/>
   </form>

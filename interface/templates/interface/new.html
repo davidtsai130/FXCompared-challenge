@@ -1,6 +1,17 @@
 <h1> Create New Account </h1>
 
-Name:
-Phone Number:
-Address:
-Starting Balance:
+<form action="/interface/" method="post">{% csrf_token %}
+  <label for="name">Name: </label>
+  <input id="name" type="text" name="name" maxlength="75" required />
+    <br>
+  <label for="address">Address: </label>
+  <input id="address" type="text" name="address" maxlength="200" required />
+    <br>
+  <label for="phone_number">Phone Number: </label>
+  <input id="phone_number" type="text" name="phone_number" maxlength="12" required />
+    <br>
+  <label for="balance">Balance: </label>
+  <input id="balance" type="number" name="balance" step='0.01' value='0.00' placeholder='0.00' />
+    <br>
+  <input type="submit" value="Submit"/>
+</form>
