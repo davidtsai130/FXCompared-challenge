@@ -1,5 +1,4 @@
-from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Account
 # Create your views here.
 
@@ -8,8 +7,5 @@ def index(request):
     return render(request, 'interface/index.html', {'all_accounts': all_accounts})
 
 def show(request, account_id):
-    try:
-        account = Account.objects.get(pk=account_id)
-    except Account.DoesNotExist:
-        raise Http404("Account does not exist")
+    account = get_object_or_404(Account, pk=account_id)
     return render(request, 'interface/show.html', {'account': account})
