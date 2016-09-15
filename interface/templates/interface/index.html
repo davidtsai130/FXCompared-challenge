@@ -1,7 +1,7 @@
 {% if all_accounts %}
   <ul>
     {% for account in all_accounts %}
-    <li><a href="/interface/{{ account.id }}/"> {{account.name}} </a></li>
+    <li><a href="{% url 'interface:show' account.id%}"> {{account.name}} </a></li>
     {% endfor %}
   </ul>
 
@@ -9,3 +9,5 @@
   <h2> There are no accounts </h2>
 
 {% endif %}
+
+  <button><a href="{% url 'interface:new' %}">Create New Account</a></button>
