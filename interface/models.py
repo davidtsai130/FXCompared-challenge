@@ -3,8 +3,6 @@ from django.utils import timezone
 from datetime import datetime
 from django.db import models
 
-# Create your models here.
-
 class Account(models.Model):
     name = models.CharField(max_length=75)
     address = models.CharField(max_length=200)
